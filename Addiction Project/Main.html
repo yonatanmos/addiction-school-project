@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>התמכרות לעישון | כיתה י' - דרכה מקסים לוי</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* משתנים - פלטה נקייה ונוחה לעיניים */
+        :root {
+            --primary: #2c5530;
+            --primary-light: #4a7856;
+            --primary-dark: #1e3a24;
+            --secondary: #8b4513;
+            --accent: #c44536;
+            --light: #f8f9fa;
+            --light-gray: #e9ecef;
+            --medium-gray: #adb5bd;
+            --dark-gray: #495057;
+            --danger: #dc3545;
+            --success: #28a745;
+            --warning: #ffc107;
+            --border-radius: 12px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s ease;
+        }
+
+        /* איפוס והגדרות בסיס */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: var(--light);
+            color: var(--dark-gray);
+            line-height: 1.7;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* קונטיינר רספונסיבי */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* כותרת עליונה */
+        .main-header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .school-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            flex-wrap: wrap;
+        }
+
+        .school-icon {
+            font-size: 1.8rem;
+            color: white;
+        }
+
+        .school-name {
+            font-family: 'Rubik', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .project-title {
+            font-family: 'Rubik', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            line-height: 1.2;
+        }
+
+        .project-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .meta-tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            min-width: fit-content;
+        }
+
+        .meta-tag:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        /* ניווט רספונסיבי */
+        .main-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            padding: 0.7rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .nav-container {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 2rem;
+            }
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-family: 'Rubik', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .nav-brand i {
+            font-size: 1.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            gap: 0.3rem;
+            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+            .nav-menu {
+                width: auto;
+                gap: 0.5rem;
+            }
+        }
+
+        .nav-link {
+            color: var(--dark-gray);
+            text-decoration: none;
+            padding: 0.6rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        .nav-link:hover {
+            background-color: var(--light-gray);
+            color: var(--primary);
+        }
+
+        .nav-link.active {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* סקציות רספונסיביות */
+        .section {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: clamp(1.5rem, 4vw, 3.5rem);
+            margin: clamp(1.5rem, 3vw, 3rem) 0;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .section:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
+        }
+
+        .section-header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1.2rem;
+            margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+            padding-bottom: 1.2rem;
+            border-bottom: 3px solid var(--light-gray);
+        }
+
+        @media (min-width: 576px) {
+            .section-header {
+                flex-direction: row;
+                align-items: center;
+                gap: 1.5rem;
+            }
+        }
+
+        .section-icon {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--primary);
+            background: var(--light-gray);
+            width: clamp(60px, 8vw, 70px);
+            height: clamp(60px, 8vw, 70px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-family: 'Rubik', sans-serif;
+            font-size: clamp(1.6rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--primary-dark);
+            line-height: 1.3;
+            text-align: right;
+            width: 100%;
+        }
+
+        .section-content {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.8;
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+            text-align: right;
+        }
+
+        /* כרטיסים רספונסיביים */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .cards-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+            }
+        }
+
+        .info-card {
+            background: var(--light);
+            border-radius: var(--border-radius);
+            padding: clamp(1.5rem, 3vw, 2.5rem);
+            border-left: 5px solid var(--primary);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            border-left-color: var(--accent);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .card-icon {
+            font-size: clamp(1.8rem, 3vw, 2.2rem);
+            color: var(--primary);
+            background: var(--light-gray);
+            width: clamp(50px, 6vw, 60px);
+            height: clamp(50px, 6vw, 60px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-family: 'Rubik', sans-serif;
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            font-weight: 700;
+            color: var(--primary-dark);
+            line-height: 1.3;
+        }
+
+        .card-content {
+            font-size: clamp(1rem, 1.8vw, 1.1rem);
+            line-height: 1.7;
+            color: var(--dark-gray);
+            flex-grow: 1;
+        }
+
+        /* רשימות רספונסיביות */
+        .info-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .list-item {
+            padding: 1rem;
+            margin-bottom: 0.8rem;
+            background: var(--light-gray);
+            border-radius: 8px;
+            border-right: 4px solid var(--primary);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .list-item:hover {
+            background: white;
+            border-right-color: var(--accent);
+            transform: translateX(-5px);
+        }
+
+        .list-icon {
+            color: var(--primary);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        /* ציר זמן רספונסיבי */
+        .timeline-container {
+            position: relative;
+            width: 100%;
+            margin: 2rem auto 0;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 1.5rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 1.5rem;
+            width: 3px;
+            height: 100%;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        @media (min-width: 768px) {
+            .timeline::before {
+                right: 50%;
+                transform: translateX(50%);
+            }
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 100%;
+            padding: 0 0 1.5rem 3rem;
+            box-sizing: border-box;
+        }
+
+        @media (min-width: 768px) {
+            .timeline-item {
+                width: 50%;
+                padding: 1.5rem;
+            }
+            
+            .timeline-item:nth-child(odd) {
+                right: 0;
+                padding-left: 3rem;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 50%;
+                padding-right: 3rem;
+            }
+        }
+
+        .timeline-content {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            border: 2px solid var(--light-gray);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .timeline-time {
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* סטטיסטיקה רספונסיבית */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: var(--light-gray);
+            border-radius: var(--border-radius);
+        }
+
+        @media (min-width: 768px) {
+            .stats-container {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2rem;
+                padding: 2rem;
+            }
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Rubik', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-weight: 600;
+            color: var(--dark-gray);
+            font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+            line-height: 1.3;
+        }
+
+        /* אזהרות */
+        .warning-box {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border: 2px solid var(--warning);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .warning-box::before {
+            content: '⚠️';
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            font-size: 2rem;
+            opacity: 0.2;
+        }
+
+        .warning-title {
+            color: #856404;
+            font-weight: 800;
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            text-align: right;
+        }
+
+        .warning-content {
+            color: #856404;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            text-align: right;
+        }
+
+        /* כפתורים רספונסיביים */
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border: none;
+            font-family: 'Rubik', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(44, 85, 48, 0.2);
+            text-align: center;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 576px) {
+            .action-btn {
+                width: auto;
+                margin: 0;
+            }
+        }
+
+        .action-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(44, 85, 48, 0.3);
+        }
+
+        .action-btn.secondary {
+            background: var(--secondary);
+        }
+
+        .action-btn.secondary:hover {
+            background: #6b3410;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        /* פוטר רספונסיבי */
+        .main-footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Rubik', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            color: white;
+        }
+
+        .footer-info {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .project-summary {
+            font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+            opacity: 0.8;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        /* מודלים ופופאפים */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: modalFadeIn 0.3s ease;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .modal-title {
+            font-family: 'Rubik', sans-serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-gray);
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 0.5rem;
+        }
+
+        .modal-close:hover {
+            color: var(--danger);
+        }
+
+        .modal-body {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--dark-gray);
+        }
+
+        /* רספונסיביות נוספת */
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .section {
+                padding: 1.5rem;
+            }
+            
+            .info-card {
+                padding: 1.5rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            .meta-tag {
+                font-size: 0.85rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+
+        @media (min-width: 1400px) {
+            .container {
+                max-width: 1320px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- מודל -->
+    <div class="modal-overlay" id="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle"></h3>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <!-- כותרת עליונה -->
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="school-badge">
+                <i class="fas fa-school school-icon"></i>
+                <span class="school-name">דרכה מקסים לוי</span>
+            </div>
+            
+            <h1 class="project-title">התמכרות לעישון</h1>
+            <p class="project-subtitle">
+                פרויקט כיתה י' - חקר התופעה של התמכרות לעישון, נזקיה הבריאותיים והדרכים לגמילה
+            </p>
+            
+            <div class="project-meta">
+                <div class="meta-tag">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>דצמבר 2025</span>
+                </div>
+                <div class="meta-tag">
+                    <i class="fas fa-users"></i>
+                    <span>כיתה י'</span>
+                </div>
+                <div class="meta-tag">
+                    <i class="fas fa-book"></i>
+                    <span>פרויקט התמכרויות</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ניווט -->
+    <nav class="main-nav">
+        <div class="container nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-smoking-ban"></i>
+                <span>התמכרות לעישון</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#introduction" class="nav-link active">הקדמה</a></li>
+                <li><a href="#what-is" class="nav-link">מהי התמכרות?</a></li>
+                <li><a href="#nicotine" class="nav-link">ניקוטין</a></li>
+                <li><a href="#effects" class="nav-link">השפעות</a></li>
+                <li><a href="#recovery" class="nav-link">גמילה</a></li>
+                <li><a href="#statistics" class="nav-link">נתונים</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- תוכן ראשי -->
+    <main class="container">
+        <!-- הקדמה -->
+        <section id="introduction" class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <h2 class="section-title">הקדמה: פרויקט ההתמכרות לעישון</h2>
+            </div>
+            
+            <p class="section-content">
+                במסגרת פרויקט ההתמכרויות של כיתה י' בבית ספר דרכה מקסים לוי, בחרנו להתמקד בהתמכרות לעישון. 
+                זוהי אחת ההתמכרויות הנפוצות בעולם, עם השפעות הרסניות על הבריאות ועל החברה.
+            </p>
+            
+            <p class="section-content">
+                מטרת הפרויקט היא להבין לעומק את מנגנון ההתמכרות לניקוטין, להכיר את הנזקים הבריאותיים 
+                ולחקור דרכים יעילות לגמילה מעישון. הפרויקט מבוסס על מחקרים מדעיים ועדויות רפואיות.
+            </p>
+            
+            <div class="btn-container">
+                <button class="action-btn" id="startProject">
+                    <i class="fas fa-play-circle"></i>
+                    <span>התחל את המסע</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- מהי התמכרות? -->
+        <section id="what-is" class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h2 class="section-title">מהי התמכרות לעישון?</h2>
+            </div>
+            
+            <p class="section-content">
+                התמכרות לעישון היא תלות פיזית ופסיכולוגית בניקוטין, החומר הפעיל בסיגריות. 
+                זו אינה רק הרגל רע, אלא מחלה כרונית של המוח שמשנה את המבנה והתפקוד שלו.
+            </p>
+            
+            <div class="cards-grid">
+                <div class="info-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-dna"></i>
+                        </div>
+                        <h3 class="card-title">תלות פיזית</h3>
+                    </div>
+                    <p class="card-content">
+                        הגוף מפתח צורך פיזי בניקוטין. ללא ניקוטין מופיעים תסמיני גמילה כמו עצבנות, 
+                        חרדה, קשיי ריכוז, רעב מוגבר וכאבי ראש.
+                    </p>
+                    <div class="btn-container" style="margin-top: auto; padding-top: 1rem;">
+                        <button class="action-btn secondary show-details" data-target="physical">
+                            <i class="fas fa-search"></i>
+                            <span>למידע נוסף</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-psychology"></i>
+                        </div>
+                        <h3 class="card-title">תלות פסיכולוגית</h3>
+                    </div>
+                    <p class="card-content">
+                        העישון הופך להרגל שמקושר לפעולות יומיומיות: עם קפה, אחרי אוכל, בהפסקות, 
+                        בלחץ או בשעמום. המוח מקשר בין המצבים הללו לצורך בעישון.
+                    </p>
+                    <div class="btn-container" style="margin-top: auto; padding-top: 1rem;">
+                        <button class="action-btn secondary show-details" data-target="psychological">
+                            <i class="fas fa-search"></i>
+                            <span>למידע נוסף</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="card-title">סבילות</h3>
+                    </div>
+                    <p class="card-content">
+                        עם הזמן, הגוף מתרגל לניקוטין ונדרשת כמות גדולה יותר כדי להשיג את אותה תחושה. 
+                        זה מוביל לעלייה בכמות הסיגריות ולחיזוק ההתמכרות.
+                    </p>
+                    <div class="btn-container" style="margin-top: auto; padding-top: 1rem;">
+                        <button class="action-btn secondary show-details" data-target="tolerance">
+                            <i class="fas fa-search"></i>
+                            <span>למידע נוסף</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ניקוטין -->
+        <section id="nicotine" class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <h2 class="section-title">ניקוטין: החומר הממכר</h2>
+            </div>
+            
+            <p class="section-content">
+                ניקוטין הוא אלקלואיד המצוי בצמח הטבק. זהו אחד החומרים הממכרים ביותר הידועים למדע, 
+                חזק יותר מהרואין ומקוקאין מבחינת פוטנציאל ההתמכרות.
+            </p>
+            
+            <div class="warning-box">
+                <h3 class="warning-title">איך הניקוטין פועל על המוח?</h3>
+                <p class="warning-content">
+                    תוך 7-10 שניות מהשאיפה, הניקוטין מגיע למוח. הוא מתחזה למוליך העצבי הטבעי אצטילכולין 
+                    ומפעיל שחרור של דופמין - מוליך עצבי שגורם לתחושת הנאה ורוגע. המוח לומד לקשר בין עישון 
+                    להנאה ומתחיל לצפות לניקוטין.
+                </p>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-time">
+                                <i class="fas fa-clock"></i>
+                                7-10 שניות
+                            </div>
+                            <p>ניקוטין מגיע למוח דרך הריאות ומתחזה לאצטילכולין</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-time">
+                                <i class="fas fa-bolt"></i>
+                                מיידי
+                            </div>
+                            <p>שחרור דופמין שגורם לתחושת הנאה ורוגע</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-time">
+                                <i class="fas fa-chart-line-down"></i>
+                                30-60 דקות
+                            </div>
+                            <p>רמת הניקוטין יורדת ומופיעים סימני גמילה ראשונים</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <div class="timeline-time">
+                                <i class="fas fa-redo"></i>
+                                2-3 שעות
+                            </div>
+                            <p>צורך בסיגריה נוספת כדי להעלות שוב את רמת הניקוטין</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="btn-container" style="margin-top: 2rem;">
+                <button class="action-btn" id="showBrainEffect">
+                    <i class="fas fa-brain"></i>
+                    <span>הדגמת השפעת הניקוטין על המוח</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- השפעות -->
+        <section id="effects" class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h2 class="section-title">השפעות ההתמכרות לעישון</h2>
+            </div>
+            
+            <p class="section-content">
+                מעבר להתמכרות עצמה, לעישון השפעות בריאותיות הרסניות על כל מערכות הגוף.
+            </p>
+            
+            <div class="cards-grid">
+                <div class="info-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-lungs"></i>
+                        </div>
+                        <h3 class="card-title">מערכת הנשימה</h3>
+                    </div>
+                    <ul class="info-list">
+                        <li class="list-item">
+                            <i class="fas fa-cough list-icon"></i>
+                            <span>סרטן ריאות (85% מהמקרים בקרב מעשנים)</span>
+                        </li>
+                        <li class="list-item">
+                            <i class="fas fa-wind list-icon"></i>
+                            <span>ברונכיטיס כרונית ונפחת (אמפיזמה)</span>
+                        </li>
+                        <li class="list-item">
+                            <i class="fas fa-virus list-icon"></i>
+                            <span>זיהומים חוזרים בדרכי הנשימה</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="card-title">מערכת הלב וכלי הדם</h3>
+                    </div>
+                    <ul class="info-list">
+                        <li class="list-item">
+                            <i class="fas fa-heart-crack list-icon"></i>
+                            <span>מחלות לב והתקפי לב</span>
+                        </li>
+                        <li class="list-item">
+                            <i class="fas fa-brain list-icon"></i>
+                            <span>שבץ מוחי</span>
+                        </li>
+                        <li class="list-item">
+                            <i class="fas fa-tint list-icon"></i>
+                            <span>יתר לחץ דם</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="info-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-tooth"></i>
+                        </div>
+                        <h3 class="card-title">נזקים נוספים</h3>
+                    </div>
+                    <ul class="info-list">
+                        <li class="list-item">
+                            <i class="fas fa-mouth list-icon"></i>
+                            <span>סרטן הפה, הלוע והוושט</span>
+                        </li>
+                        <li class="list-item">
+                            <i class="fas fa-baby list-icon"></i>
+                            <span>בעיות פוריות וסיבוכי היריון</span>
+                        </li>
+                        <li class="list-item">
+                            <i class="fas fa-eye list-icon"></i>
+                            <span>קטרקט וניוון רשתית</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="warning-box">
+                <h3 class="warning-title">עובדה חשובה:</h3>
+                <p class="warning-content">
+                    ההתמכרות לעישון מקצרת את תוחלת החיים בממוצע ב-10 שנים. 
+                    מעשן שמתחיל בגיל 15 ומעשן כל חייו מאבד בממוצע 8 דקות חיים מכל סיגריה!
+                </p>
+            </div>
+            
+            <div class="btn-container" style="margin-top: 2rem;">
+                <button class="action-btn secondary" id="healthCalculator">
+                    <i class="fas fa-calculator"></i>
+                    <span>חשב נזקים בריאותיים</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- גמילה -->
+        <section id="recovery" class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <h2 class="section-title">דרכים לגמילה מעישון</h2>
+            </div>
+            
+            <p class="section-content">
+                למרות שההתמכרות לעישון היא חזקה, גמילה היא אפשרית. הצלחת הגמילה תלויה בשילוב 
+                של טיפול פיזי, פסיכולוגי ותמיכה חברתית.
+            </p>
+            
+            <div class="cards-grid">
+                <div class="info-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-pills"></i>
+                        </div>
+                        <h3 class="card-title">טיפול תרופתי</h3>
+                    </div>
+                    <p class="card-content">
+                        <strong>מדבקות ניקוטין:</strong> משחררות ניקוטין קבוע לגוף ללא הכימיקלים המסרטנים.<br>
+                        <strong>מסטיקי ניקוטין:</strong> לעזרה עם חשקים פתאומיים.<br>
+                        <strong>תרופות מרשם:</strong> כמו צ'מפיקס או זייבן שפועלות על קולטני הניקוטין במוח.
+                    </p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 class="card-title">טיפול התנהגותי</h3>
+                    </div>
+                    <p class="card-content">
+                        <strong>טיפול קוגניטיבי-התנהגותי:</strong> שינוי דפוסי מחשבה והתנהגות.<br>
+                        <strong>קבוצות תמיכה:</strong> שיתוף בקשיים עם אנשים באותה סירה.<br>
+                        <strong>אפליקציות סיוע:</strong> מעקב אחר ההתקדמות ותמיכה יומיומית.
+                    </p>
+                </div>
+                
+                <div class="info-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="card-title">תמיכה חברתית</h3>
+                    </div>
+                    <p class="card-content">
+                        <strong>חבר לגמילה:</strong> גמילה משותפת מגדילה סיכויי הצלחה.<br>
+                        <strong>תמיכת המשפחה:</strong> הבנה ועידוד מהקרובים.<br>
+                        <strong>הימנעות ממצבים מעוררים:</strong> זיהוי טריגרים והימנעות מהם.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="btn-container">
+                <button class="action-btn secondary" id="recoveryPlan">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>צור תוכנית גמילה אישית</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- נתונים -->
+        <section id="statistics" class="section">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h2 class="section-title">נתונים סטטיסטיים</h2>
+            </div>
+            
+            <p class="section-content">
+                נתונים מספריים שממחישים את היקף תופעת ההתמכרות לעישון והשפעותיה.
+            </p>
+            
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-value">90%</div>
+                    <div class="stat-label">מקרי סרטן הריאות<br>קשורים לעישון</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-value">1.3M</div>
+                    <div class="stat-label">מעשנים בישראל<br>כ-20% מהמבוגרים</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-value">70%</div>
+                    <div class="stat-label">מהמעשנים רוצים<br>להפסיק לעשן</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-value">30%</div>
+                    <div class="stat-label">ירידה בסיכון למחלות לב<br>שנה אחרי הגמילה</div>
+                </div>
+            </div>
+            
+            <div class="warning-box">
+                <h3 class="warning-title">תופעת העישון בקרב בני נוער</h3>
+                <p class="warning-content">
+                    כ-8% מבני הנוער בישראל מעשנים. רוב המעשנים מתחילים לפני גיל 18. 
+                    חשיפה מוקדמת לניקוטין מגדילה את הסיכוי להתמכרות לכל החיים ומשפיעה על התפתחות המוח.
+                </p>
+            </div>
+            
+            <div class="btn-container" style="margin-top: 2rem;">
+                <button class="action-btn" id="statsSimulator">
+                    <i class="fas fa-chart-line"></i>
+                    <span>סימולטור נתונים אינטראקטיבי</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- פוטר -->
+    <footer class="main-footer">
+        <div class="container footer-content">
+            <h2 class="footer-logo">דרכה מקסים לוי</h2>
+            <p class="footer-info">
+                פרויקט התמכרות לעישון | כיתה י' | דצמבר 2025<br>
+                חקר התופעה, הבנת המנגנונים ובדיקת דרכי התמודדות
+            </p>
+            
+            <div class="project-summary">
+                <p>
+                    הפרויקט נוצר כחלק מלימודי מדעי החברה והבריאות, במטרה להבין לעומק את תופעת ההתמכרות 
+                    ולפתח מודעות לנזקי העישון בקרב בני נוער. כל המידע מבוסס על מחקרים מדעיים 
+                    ועדויות רפואיות מארגוני בריאות מובילים.
+                </p>
+                <p style="margin-top: 1.5rem;">
+                    <strong>מקורות:</strong> משרד הבריאות, האגודה למלחמה בסרטן, ארגון הבריאות העולמי, מכון גרטנר
+                </p>
+            </div>
+            
+            <div style="margin-top: 3rem; opacity: 0.7; font-size: 1rem;">
+                © 2025 בית ספר דרכה מקסים לוי | פרויקט חינוכי | כל הזכויות שמורות
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // פונקציות עזר למודל
+        function showModal(title, content) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalBody').innerHTML = content;
+            document.getElementById('modal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // סגירת מודל בלחיצה מחוץ לתוכן
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // סגירת מודל בלחיצה על כפתור הסגירה
+        document.getElementById('modalClose').addEventListener('click', closeModal);
+
+        // סגירת מודל עם Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // נתונים למודלים
+        const modalData = {
+            physical: {
+                title: "תלות פיזית בניקוטין",
+                content: `
+                    <h4>מהי תלות פיזית?</h4>
+                    <p>תלות פיזית היא מצב שבו הגוף מתרגל לנוכחות קבועה של ניקוטין ומפתח צורך פיזי בו.</p>
+                    
+                    <h4>תסמיני הגמילה הפיזיים:</h4>
+                    <ul style="padding-right: 20px; margin-top: 1rem;">
+                        <li style="margin-bottom: 0.8rem;"><strong>עצבנות וחרדה:</strong> ניקוטין משפיע על רמות הדופמין במוח</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>קשיי ריכוז:</strong> המוח מתקשה לתפקד ללא הניקוטין</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>רעב מוגבר:</strong> ניקוטין מדכא תיאבון, ההיעדרו מעלה אותו</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>כאבי ראש ועייפות:</strong> שינויים בזרימת הדם למוח</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>בעיות שינה:</strong> שיבוש במחזור השינה הטבעי</li>
+                    </ul>
+                    
+                    <div class="warning-box" style="margin-top: 1.5rem; background: #ffeaa7;">
+                        <p><strong>משך התסמינים:</strong> תסמיני הגמילה הפיזיים מגיעים לשיא תוך 2-3 ימים ונעלמים תוך 2-4 שבועות.</p>
+                    </div>
+                `
+            },
+            psychological: {
+                title: "תלות פסיכולוגית בעישון",
+                content: `
+                    <h4>מהי תלות פסיכולוגית?</h4>
+                    <p>תלות פסיכולוגית היא הקשר שהמוח יוצר בין עישון לבין פעולות, רגשות ומצבים שונים.</p>
+                    
+                    <h4>טריגרים נפוצים לעישון:</h4>
+                    <ul style="padding-right: 20px; margin-top: 1rem;">
+                        <li style="margin-bottom: 0.8rem;"><strong>עם קפה או אחרי ארוחה:</strong> הרגל שנוצר עם הזמן</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>בהפסקות בעבודה/לימודים:</strong> הפסקה שמזוהה עם עישון</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>במצבי לחץ או שעמום:</strong> שימוש בסיגריה כדרך להתמודדות</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>באירועים חברתיים:</strong> לחץ חברתי והרגל קבוצתי</li>
+                        <li style="margin-bottom: 0.8rem;"><strong>בנסיעה או בהמתנה:</strong> שימוש בסיגריה להעביר זמן</li>
+                    </ul>
+                    
+                    <h4>דרכים להתמודדות:</h4>
+                    <ol style="padding-right: 20px; margin-top: 1rem;">
+                        <li style="margin-bottom: 0.8rem;">זהה את הטריגרים האישיים שלך</li>
+                        <li style="margin-bottom: 0.8rem;">הכן פעילויות חלופיות לכל טריגר</li>
+                        <li style="margin-bottom: 0.8rem;">שנה את השגרה היומית שלך</li>
+                        <li style="margin-bottom: 0.8rem;">השתמש בטכניקות הרפיה ונשימה</li>
+                    </ol>
+                `
+            },
+            tolerance: {
+                title: "פיתוח סבילות לניקוטין",
+                content: `
+                    <h4>מהי סבילות לניקוטין?</h4>
+                    <p>סבילות היא מצב שבו הגוף מתרגל לניקוטין ונדרשת כמות גדולה יותר כדי להשיג את אותה השפעה.</p>
+                    
+                    <h4>איך מתפתחת סבילות?</h4>
+                    <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                        <ol style="padding-right: 20px;">
+                            <li style="margin-bottom: 0.8rem;">המוח מפחית את מספר קולטני הניקוטין</li>
+                            <li style="margin-bottom: 0.8rem;">הגוף מפרק ניקוטין מהר יותר</li>
+                            <li style="margin-bottom: 0.8rem;">נדרשת כמות גדולה יותר של ניקוטין כדי להפעיל את אותם קולטנים</li>
+                            <li style="margin-bottom: 0.8rem;">המעשן מעלה את מספר הסיגריות או מעשן סיגריות חזקות יותר</li>
+                        </ol>
+                    </div>
+                    
+                    <h4>נתונים על סבילות:</h4>
+                    <ul style="padding-right: 20px; margin-top: 1rem;">
+                        <li style="margin-bottom: 0.8rem;">סבילות מתחילה להתפתח כבר בשבועות הראשונים לעישון</li>
+                        <li style="margin-bottom: 0.8rem;">מעשנים כבדים יכולים לפתח סבילות מלאה תוך חודשים ספורים</li>
+                        <li style="margin-bottom: 0.8rem;">סבילות גורמת לעלייה בצריכת הניקוטין ולחיזוק ההתמכרות</li>
+                    </ul>
+                    
+                    <div class="warning-box" style="margin-top: 1.5rem; background: #ffeaa7;">
+                        <p><strong>חשוב לדעת:</strong> הסבילות מתאפסת לאחר גמילה ממושכת. אם מפסיקים לעשן ומתחילים שוב, הגוף רגיש יותר לניקוטין.</p>
+                    </div>
+                `
+            }
+        };
+
+        // כפתורים למידע נוסף
+        document.querySelectorAll('.show-details').forEach(button => {
+            button.addEventListener('click', function() {
+                const target = this.getAttribute('data-target');
+                if (modalData[target]) {
+                    showModal(modalData[target].title, modalData[target].content);
+                }
+            });
+        });
+
+        // כפתור התחל את המסע
+        document.getElementById('startProject').addEventListener('click', function() {
+            const whatIsSection = document.querySelector('#what-is');
+            if (whatIsSection) {
+                const headerHeight = document.querySelector('.main-nav').offsetHeight;
+                const targetPosition = whatIsSection.offsetTop - headerHeight - 30;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // שינוי טקסט הכפתור
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-check"></i> התחלנו במסע!';
+                this.style.backgroundColor = '#28a745';
+                
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                    this.style.backgroundColor = '';
+                }, 2000);
+            }
+        });
+
+        // הדגמת השפעת הניקוטין על המוח
+        document.getElementById('showBrainEffect').addEventListener('click', function() {
+            showModal('השפעת הניקוטין על המוח - הדגמה אינטראקטיבית', `
+                <h4>סימולציית השפעת הניקוטין:</h4>
+                <p>לחץ על הכפתור להפעלת ההדגמה:</p>
+                
+                <div style="text-align: center; margin: 2rem 0;">
+                    <button id="startSimulation" style="
+                        background: var(--primary);
+                        color: white;
+                        border: none;
+                        padding: 1rem 2rem;
+                        border-radius: 8px;
+                        font-size: 1.1rem;
+                        cursor: pointer;
+                        margin: 1rem;
+                    ">
+                        <i class="fas fa-play"></i> התחל סימולציה
+                    </button>
+                </div>
+                
+                <div id="simulationArea" style="
+                    background: #f8f9fa;
+                    border-radius: 8px;
+                    padding: 1.5rem;
+                    margin-top: 1.5rem;
+                    min-height: 200px;
+                    position: relative;
+                    overflow: hidden;
+                ">
+                    <div id="brainSimulation" style="display: none;">
+                        <div style="position: relative; height: 180px;">
+                            <div id="nicotineEffect" style="
+                                position: absolute;
+                                top: 50%;
+                                right: 50%;
+                                transform: translate(50%, -50%);
+                                width: 100px;
+                                height: 100px;
+                                background: radial-gradient(circle, #ff6b6b, #ff0000);
+                                border-radius: 50%;
+                                display: none;
+                                animation: pulse 1s infinite;
+                            "></div>
+                            <div style="
+                                position: absolute;
+                                top: 50%;
+                                right: 50%;
+                                transform: translate(50%, -50%);
+                                width: 120px;
+                                height: 120px;
+                                border: 3px solid #495057;
+                                border-radius: 50%;
+                                background: rgba(255, 255, 255, 0.8);
+                            "></div>
+                        </div>
+                        
+                        <div id="simulationSteps" style="margin-top: 1.5rem;">
+                            <div class="step" style="margin-bottom: 1rem; padding: 0.8rem; background: white; border-radius: 8px; border-right: 4px solid #2c5530;">
+                                <span id="stepText">הסימולציה תתחיל בעוד...</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="simulationInstructions" style="text-align: center; padding: 2rem 0;">
+                        <i class="fas fa-brain" style="font-size: 3rem; color: #adb5bd;"></i>
+                        <p style="margin-top: 1rem; color: #6c757d;">לחץ על "התחל סימולציה" כדי לראות כיצד הניקוטין משפיע על המוח</p>
+                    </div>
+                </div>
+                
+                <style>
+                    @keyframes pulse {
+                        0% { transform: translate(50%, -50%) scale(1); opacity: 0.7; }
+                        50% { transform: translate(50%, -50%) scale(1.1); opacity: 1; }
+                        100% { transform: translate(50%, -50%) scale(1); opacity: 0.7; }
+                    }
+                </style>
+                
+                <script>
+                    document.getElementById('startSimulation').addEventListener('click', function() {
+                        this.style.display = 'none';
+                        document.getElementById('brainSimulation').style.display = 'block';
+                        document.getElementById('simulationInstructions').style.display = 'none';
+                        
+                        const steps = [
+                            {time: 1000, text: "שאיפת עשן הסיגריה..."},
+                            {time: 2000, text: "ניקוטין נספג בריאות..."},
+                            {time: 3000, text: "ניקוטין מגיע למוח (7 שניות)..."},
+                            {time: 4000, text: "פעילות ניקוטין במוח - הדגמה"},
+                            {time: 5000, text: "שחרור דופמין - תחושת הנאה"},
+                            {time: 6000, text: "פיתוח תלות - המוח לומד לקשר עישון להנאה"},
+                            {time: 7000, text: "סיום ההדגמה"}
+                        ];
+                        
+                        let currentStep = 0;
+                        
+                        function showNextStep() {
+                            if (currentStep < steps.length) {
+                                const step = steps[currentStep];
+                                document.getElementById('stepText').textContent = step.text;
+                                
+                                if (currentStep === 3) {
+                                    document.getElementById('nicotineEffect').style.display = 'block';
+                                }
+                                
+                                if (currentStep === 5) {
+                                    document.getElementById('nicotineEffect').style.animation = 'pulse 0.5s infinite';
+                                }
+                                
+                                currentStep++;
+                                setTimeout(showNextStep, 1000);
+                            } else {
+                                document.getElementById('stepText').textContent = "ההדגמה הושלמה! זה מראה כיצד ניקוטין יוצר התמכרות.";
+                                setTimeout(() => {
+                                    document.getElementById('nicotineEffect').style.display = 'none';
+                                }, 2000);
+                            }
+                        }
+                        
+                        showNextStep();
+                    });
+                <\/script>
+            `);
+        });
+
+        // מחשב נזקים בריאותיים
+        document.getElementById('healthCalculator').addEventListener('click', function() {
+            const cigarettes = prompt("כמה סיגריות אתה מעשן ביום בממוצע?", "10");
+            
+            if (!cigarettes || isNaN(cigarettes) || cigarettes <= 0) {
+                alert("אנא הכנס מספר תקין של סיגריות");
+                return;
+            }
+            
+            const cigs = parseInt(cigarettes);
+            
+            // חישוב נזקים
+            const healthRisks = {
+                cancer: (cigs * 0.8).toFixed(1),
+                heart: (cigs * 1.5).toFixed(1),
+                life: (cigs * 8).toFixed(0),
+                money: (cigs * 365 * 2).toFixed(0)
+            };
+            
+            showModal('חישוב נזקי עישון אישי', `
+                <h4>תוצאות חישוב עבור ${cigs} סיגריות ליום:</h4>
+                
+                <div style="display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 1.5rem 0;">
+                    <div style="background: #fff3cd; padding: 1rem; border-radius: 8px; border-right: 4px solid #ffc107;">
+                        <strong>סיכון לסרטן ריאות:</strong> גבוה ב-${healthRisks.cancer}% מהאוכלוסייה הכללית
+                    </div>
+                    
+                    <div style="background: #f8d7da; padding: 1rem; border-radius: 8px; border-right: 4px solid #dc3545;">
+                        <strong>סיכון למחלות לב:</strong> גבוה ב-${healthRisks.heart}% מהאוכלוסייה הכללית
+                    </div>
+                    
+                    <div style="background: #d1ecf1; padding: 1rem; border-radius: 8px; border-right: 4px solid #17a2b8;">
+                        <strong>אובדן זמן חיים:</strong> ${healthRisks.life} דקות חיים שאבדו כל יום
+                    </div>
+                    
+                    <div style="background: #d4edda; padding: 1rem; border-radius: 8px; border-right: 4px solid #28a745;">
+                        <strong>עלות כספית שנתית:</strong> כ-${healthRisks.money} שקלים בשנה רק על סיגריות
+                    </div>
+                </div>
+                
+                <div class="warning-box" style="background: #ffeaa7; margin-top: 1.5rem;">
+                    <h5 style="color: #856404;">המלצות:</h5>
+                    <ol style="padding-right: 20px; color: #856404;">
+                        <li>הפחתה הדרגתית בכמות הסיגריות</li>
+                        <li>שימוש בתחליפי ניקוטין</li>
+                        <li>פנייה לייעוץ מקצועי</li>
+                        <li>הצטרפות לקבוצת תמיכה</li>
+                    </ol>
+                </div>
+                
+                <p style="margin-top: 1.5rem; text-align: center; color: #6c757d;">
+                    <small>הנתונים מבוססים על מחקרים של ארגון הבריאות העולמי והאגודה למלחמה בסרטן</small>
+                </p>
+            `);
+        });
+
+        // תוכנית גמילה אישית
+        document.getElementById('recoveryPlan').addEventListener('click', function() {
+            showModal('תוכנית גמילה אישית מעישון', `
+                <h4>שלבים להכנת תוכנית גמילה:</h4>
+                
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                    <ol style="padding-right: 20px;">
+                        <li style="margin-bottom: 1rem;">
+                            <strong>קבע תאריך יעד:</strong>
+                            <br><small>בחר תאריך ספציפי להפסקה (לא יותר משבועיים מעכשיו)</small>
+                        </li>
+                        <li style="margin-bottom: 1rem;">
+                            <strong>הכן את הסביבה:</strong>
+                            <br><small>הסתר סיגריות, מצתים, מאפרות. ספר למשפחה וחברים</small>
+                        </li>
+                        <li style="margin-bottom: 1rem;">
+                            <strong>זהה טריגרים:</strong>
+                            <br><small>רשום מתי אתה מעשן ומה גורם לך לרצות לעשן</small>
+                        </li>
+                        <li style="margin-bottom: 1rem;">
+                            <strong>הכן תחליפים:</strong>
+                            <br><small>מסטיק, סוכריות, שתייה, פעילות גופנית, נשימות עמוקות</small>
+                        </li>
+                        <li style="margin-bottom: 1rem;">
+                            <strong>שקול תחליפי ניקוטין:</strong>
+                            <br><small>מדבקות, מסטיקים, ספריי - התייעץ עם רופא</small>
+                        </li>
+                        <li style="margin-bottom: 1rem;">
+                            <strong>צור מערכת תמיכה:</strong>
+                            <br><small>מצא חבר לגמילה, הצטרף לקבוצת תמיכה</small>
+                        </li>
+                        <li style="margin-bottom: 1rem;">
+                            <strong>תגמל את עצמך:</strong>
+                            <br><small>קבע פרסים להצלחה - שבוע, חודש, שלושה חודשים</small>
+                        </li>
+                    </ol>
+                </div>
+                
+                <div style="margin-top: 1.5rem; text-align: center;">
+                    <button onclick="window.print()" style="
+                        background: var(--primary);
+                        color: white;
+                        border: none;
+                        padding: 0.8rem 1.5rem;
+                        border-radius: 8px;
+                        font-size: 1rem;
+                        cursor: pointer;
+                        margin: 0.5rem;
+                    ">
+                        <i class="fas fa-print"></i> הדפס תוכנית
+                    </button>
+                    
+                    <button onclick="alert('תוכנית הגמילה נשמרה! תזכורת תישלח למייל אם הזנת.')" style="
+                        background: var(--secondary);
+                        color: white;
+                        border: none;
+                        padding: 0.8rem 1.5rem;
+                        border-radius: 8px;
+                        font-size: 1rem;
+                        cursor: pointer;
+                        margin: 0.5rem;
+                    ">
+                        <i class="fas fa-save"></i> שמור תוכנית
+                    </button>
+                </div>
+                
+                <div class="warning-box" style="background: #d4edda; margin-top: 1.5rem;">
+                    <h5 style="color: #155724;">טיפ חשוב:</h5>
+                    <p style="color: #155724;">רוב המגמלים עושים כמה נסיונות לפני הצלחה. אם נכשלת - אל תתייאש! כל ניסיון מקרב אותך להצלחה.</p>
+                </div>
+            `);
+        });
+
+        // סימולטור נתונים
+        document.getElementById('statsSimulator').addEventListener('click', function() {
+            showModal('סימולטור נתונים אינטראקטיבי', `
+                <h4>סימולטור השפעת גמילה מעישון</h4>
+                <p>הזן את מספר הסיגריות שאתה מעשן ליום:</p>
+                
+                <div style="margin: 1.5rem 0;">
+                    <input type="range" id="cigarettesSlider" min="1" max="40" value="10" style="width: 100%;">
+                    <div style="display: flex; justify-content: space-between; margin-top: 0.5rem;">
+                        <span>1 סיגריה</span>
+                        <span id="sliderValue">10 סיגריות</span>
+                        <span>40 סיגריות</span>
+                    </div>
+                </div>
+                
+                <div id="simulationResults" style="
+                    background: #f8f9fa;
+                    padding: 1.5rem;
+                    border-radius: 8px;
+                    margin: 1.5rem 0;
+                    display: none;
+                ">
+                    <h5>תוצאות הסימולציה:</h5>
+                    <div id="resultsContent"></div>
+                </div>
+                
+                <div style="text-align: center;">
+                    <button id="runSimulation" style="
+                        background: var(--primary);
+                        color: white;
+                        border: none;
+                        padding: 0.8rem 2rem;
+                        border-radius: 8px;
+                        font-size: 1rem;
+                        cursor: pointer;
+                    ">
+                        <i class="fas fa-play"></i> הפעל סימולציה
+                    </button>
+                </div>
+                
+                <script>
+                    const slider = document.getElementById('cigarettesSlider');
+                    const sliderValue = document.getElementById('sliderValue');
+                    
+                    slider.addEventListener('input', function() {
+                        sliderValue.textContent = this.value + ' סיגריות';
+                    });
+                    
+                    document.getElementById('runSimulation').addEventListener('click', function() {
+                        const cigs = parseInt(slider.value);
+                        const resultsDiv = document.getElementById('simulationResults');
+                        const resultsContent = document.getElementById('resultsContent');
+                        
+                        // חישוב תוצאות
+                        const yearsLost = (cigs * 0.013).toFixed(1);
+                        const moneySaved = (cigs * 365 * 2).toLocaleString();
+                        const cancerRisk = (cigs * 0.8).toFixed(1);
+                        const recoveryTime = Math.max(30 - cigs, 5);
+                        
+                        resultsContent.innerHTML = \`
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                                <div style="text-align: center; padding: 1rem; background: white; border-radius: 8px;">
+                                    <div style="font-size: 1.5rem; font-weight: bold; color: #dc3545;">\${yearsLost} שנים</div>
+                                    <div style="font-size: 0.9rem;">תוחלת חיים שאבדה</div>
+                                </div>
+                                
+                                <div style="text-align: center; padding: 1rem; background: white; border-radius: 8px;">
+                                    <div style="font-size: 1.5rem; font-weight: bold; color: #28a745;">\${moneySaved} ₪</div>
+                                    <div style="font-size: 0.9rem;">חיסכון שנתי</div>
+                                </div>
+                                
+                                <div style="text-align: center; padding: 1rem; background: white; border-radius: 8px;">
+                                    <div style="font-size: 1.5rem; font-weight: bold; color: #ffc107;">\${cancerRisk}%</div>
+                                    <div style="font-size: 0.9rem;">סיכון מוגבר לסרטן</div>
+                                </div>
+                                
+                                <div style="text-align: center; padding: 1rem; background: white; border-radius: 8px;">
+                                    <div style="font-size: 1.5rem; font-weight: bold; color: #17a2b8;">\${recoveryTime} ימים</div>
+                                    <div style="font-size: 0.9rem;">להחלמת הריאות</div>
+                                </div>
+                            </div>
+                            
+                            <div class="warning-box" style="background: #ffeaa7; margin-top: 1.5rem;">
+                                <p><strong>המלצה:</strong> הפחתה הדרגתית של \${Math.ceil(cigs * 0.2)} סיגריות ליום תביא לשיפור ניכר בתוך חודש!</p>
+                            </div>
+                        \`;
+                        
+                        resultsDiv.style.display = 'block';
+                        resultsDiv.scrollIntoView({ behavior: 'smooth' });
+                    });
+                <\/script>
+            `);
+        });
+
+        // ניווט חלק
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    // הסרת active מכל הקישורים
+                    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                    // הוספת active לקישור הנוכחי
+                    this.classList.add('active');
+                    
+                    // גלילה חלקה
+                    const headerHeight = document.querySelector('.main-nav').offsetHeight;
+                    const targetPosition = targetSection.offsetTop - headerHeight - 30;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // עדכון קישור פעיל בגלילה
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const scrollPosition = window.scrollY + 150;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // אנימציות כניסה עדינות
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // הוספת אנימציות לאלמנטים
+        document.querySelectorAll('.section, .info-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(element);
+        });
+
+        // אנימציה לסטטיסטיקות
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const stats = document.querySelectorAll('.stat-value');
+                stats.forEach(stat => {
+                    const originalText = stat.textContent;
+                    const isMillion = originalText.includes('M');
+                    const targetValue = isMillion ? 
+                        parseFloat(originalText.replace('M', '')) * 1000000 : 
+                        parseFloat(originalText.replace('%', ''));
+                    
+                    let counter = 0;
+                    const increment = targetValue / 40;
+                    const duration = 2000;
+                    const steps = duration / 40;
+                    
+                    const timer = setInterval(() => {
+                        counter += increment;
+                        if (counter >= targetValue) {
+                            counter = targetValue;
+                            clearInterval(timer);
+                        }
+                        
+                        if (isMillion) {
+                            stat.textContent = (counter / 1000000).toFixed(1) + 'M';
+                        } else {
+                            stat.textContent = Math.floor(counter) + '%';
+                        }
+                    }, steps);
+                });
+            }, 500);
+        });
+
+        // התאמת גודל פונט למסכים קטנים
+        function adjustFontSize() {
+            const width = window.innerWidth;
+            const html = document.documentElement;
+            
+            if (width < 576) {
+                html.style.fontSize = '14px';
+            } else if (width < 768) {
+                html.style.fontSize = '15px';
+            } else {
+                html.style.fontSize = '16px';
+            }
+        }
+
+        // הפעלת התאמת גודל ומעקב אחר שינוי גודל מסך
+        adjustFontSize();
+        window.addEventListener('resize', adjustFontSize);
+
+        // אנימציה לכותרת ראשית
+        window.addEventListener('load', () => {
+            const title = document.querySelector('.project-title');
+            title.style.opacity = '0';
+            title.style.transform = 'translateY(20px)';
+            title.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            
+            setTimeout(() => {
+                title.style.opacity = '1';
+                title.style.transform = 'translateY(0)';
+            }, 300);
+        });
+    </script>
+</body>
+</html>
